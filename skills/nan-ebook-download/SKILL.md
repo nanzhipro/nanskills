@@ -1,5 +1,5 @@
 ---
-name: ebook-download
+name: nan-ebook-download
 description: Find and download ebooks (EPUB-first, PDF fallback). A bundled script searches libgen.li, ranks candidates, downloads, and verifies from local terminal. When a title returns nothing, resolve the canonical title/author/ISBN via Open Library or Douban (bundled resolver) and retry — user-supplied titles are often alternate/marketing/wrong. Falls through Anna's Archive, OceanofPDF, and VK.com only when libgen has no match. Use when the user asks to find, search for, or download a specific book or ebook by title/author/ISBN.
 version: 6.2.0
 license: MIT

@@ -23,7 +23,11 @@
 
 | 技能 | 版本 | 说明 |
 |-------|------|------|
-| [`ebook-download`](./skills/ebook-download/SKILL.md) | v6.2.0 | 电子书搜索与下载（EPUB 优先，PDF 兜底）。多源流水线：libgen → Anna's Archive → VK.com → OceanofPDF。支持元数据解析、代理自动探测、流式下载与文件校验。 |
+| [`nan-ebook-download`](./skills/nan-ebook-download/SKILL.md) | v6.2.0 | 电子书搜索与下载（EPUB 优先，PDF 兜底）。多源流水线：libgen → Anna's Archive → VK.com → OceanofPDF。支持元数据解析、代理自动探测、流式下载与文件校验。 |
+
+## 命名规范
+
+本仓库所有技能统一使用 `nan-` 前缀命名，格式为 `nan-<技能名>`。
 
 ## 安装
 
@@ -40,7 +44,7 @@ cp -r nanskills/skills/<技能名> ~/.agents/skills/
 
 ## 使用
 
-技能在对话中命中触发条件时自动激活。例如，说"帮我找《思考，快与慢》的电子书"即会自动执行 `ebook-download` 的多源搜索与下载流水线。
+技能在对话中命中触发条件时自动激活。例如，说"帮我找《思考，快与慢》的电子书"即会自动执行 `nan-ebook-download` 的多源搜索与下载流水线。
 
 详细工作流、配置及踩坑记录请参阅各技能的 `SKILL.md`。
 
