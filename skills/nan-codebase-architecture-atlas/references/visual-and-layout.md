@@ -75,6 +75,7 @@ kind → form 的映射是项目数据(见 `references/ontology-modeling.md` §2
 - **平行偏移(byPair)**:同一对 (s,t) 的第 k 条边 `off = (k − (n−1)/2)×17`;存在反向边 (t,s) 时再叠加 ±11(字典序 s<t 取 +11)。法线方向按 (s<t ? 1 : −1) 翻转,**控制点偏移要 ×1.6**,端点 ×1。
 - **标签中点** = 曲线 **t=0.5** 处 = `(x1+3c1+3c2+x2)/8`,不是两端点均值——共享中点的平行边标签必互叠。
 - **穿节点判定**:lint 按 t∈[0,1] 采样整条曲线,擦到节点盒边缘即报;手算要留 ≥10px 净空,别贴边。
+- **lint 实测参数(2026-08 验证)**:穿节点判定 = 贝塞尔 B(t) 在 t∈[0.1,0.9] 步进 0.04 逐点采样,落在目标节点盒**内缩 8px** 的矩形内即告警(内缩不是外扩,手算常过度保守);边标签互叠阈值 = 两标签中点(曲线 t=0.5 处)欧氏距离 < 18px;节点重叠判定 = 盒距 < -2px。手调坐标时可直接按此模型精算,不必盲试。
 
 ## §5 无视觉环境的目检替代(纯文本模型专用)
 
@@ -84,6 +85,10 @@ kind → form 的映射是项目数据(见 `references/ontology-modeling.md` §2
 2. **PNG 墨迹覆盖率**:stdlib zlib 解 PNG 统计非白像素占比。内容图通常 2–9%(实测密集视图 6.3–8.3% 属正常);空白页/错误页 <1%;>10% 疑似重影/污染,需复查。阈值只做异常筛查,不替代 DOM 验证。
 3. **截图的服务器前提**:截图与 dump 前先 `curl` 确认 URL 可达、`lsof -iTCP:<port> -sTCP:LISTEN` 确认 server 存活,再怀疑 Chrome/IPv6/代理——顺序反了会白绕几轮(见 shoot_atlas.sh 头注释的 proxy 坑)。
 4. 有视觉能力的场合(用户本人/视觉模型),仍以 §3 清单做最终人眼确认。
+5. **dump-dom 必须给 JS 执行时间**:`--dump-dom` 不带 `--virtual-time-budget=12000` 时引擎不渲染,返回几百字节空壳(670B 实测)——误判"渲染失败"前先确认带了 budget。
+6. **手动起 server 的 URL 形态**:`python3 -m http.server <port>` 根目录即当前目录,URL 是 `/Atlas.html`;shoot 脚本的 URL 是 `/<dir名>/<entry>`。404 时先 curl 确认实际可达路径再重截。
+7. **墨迹统计用 PIL**:自写 zlib/struct 解 PNG 易踩坑(实测失败),`python3 -c "import PIL"` 缺则 `pip3 install pillow`。
+8. **data.js 精确探针**:`cp data.js /tmp/probe.js && echo "module.exports = ATLAS;" >> /tmp/probe.js`,node require 后按 §4 公式手算几何;不要用正则剥注释后 eval——字符串里的 `sessions/*.jsonl` 一类会被 `/*…*/` 误伤。
 
 ## §6 主题系统
 

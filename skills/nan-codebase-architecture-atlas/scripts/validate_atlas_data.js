@@ -20,6 +20,7 @@ try {
 } catch (e) {
   /* vm 带 filename,stack 首行即 "文件:行号",便于定位括号/逗号错误 */
   console.error("PARSE FAIL:", (e.stack || e.message).split("\n").slice(0, 3).join("\n"));
+  console.error("HINT: 实体/视图 id 含连字符(如 exec-server)作对象键时必须加引号:\"exec-server\": {...};对象键漏逗号/花括号不配对也会在此报错");
   process.exit(2);
 }
 
