@@ -45,22 +45,22 @@ Codebase Architecture Atlas 是一个面向 AI Agent 的代码库理解 Skill。
 Codex 默认使用：
 
 ```text
-$CODEX_HOME/skills/codebase-architecture-atlas/
+$CODEX_HOME/skills/nan-codebase-architecture-atlas/
 ```
 
 未设置 `CODEX_HOME` 时，默认位置是：
 
 ```text
-~/.codex/skills/codebase-architecture-atlas/
+~/.codex/skills/nan-codebase-architecture-atlas/
 ```
 
 其他 Agent 可能使用：
 
 ```text
-~/.agents/skills/codebase-architecture-atlas/
+~/.agents/skills/nan-codebase-architecture-atlas/
 ```
 
-不同 Agent 的 Skill 根目录可能不同，以其本地配置为准。安装后开启新会话或重新加载 Skill 列表，确认 `codebase-architecture-atlas` 可以被识别。
+不同 Agent 的 Skill 根目录可能不同，以其本地配置为准。安装后开启新会话或重新加载 Skill 列表，确认 `nan-codebase-architecture-atlas` 可以被识别。
 
 ### 使用
 

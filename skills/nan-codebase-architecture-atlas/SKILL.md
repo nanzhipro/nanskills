@@ -1,5 +1,5 @@
 ---
-name: codebase-architecture-atlas
+name: nan-codebase-architecture-atlas
 description: 深入理解代码库,从本体论提炼实体与关系,生成交互式架构大图网页(多层下钻、点击组件看详情、时序数据流、设计原则)。当用户要求"理解代码库 / 画架构大图 / 架构可视化 / 系统全景图 / 实体关系本体 / 交互式架构网页 / 架构设计大图"时使用。适配多仓 workspace 或单仓,技术栈不限。
 ---
 
