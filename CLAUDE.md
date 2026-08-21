@@ -28,6 +28,7 @@ skills/
 ### Current Skills
 
 - **ebook-download** (v6.2.0): Multi-source ebook search and download pipeline (libgen → Anna's Archive → VK.com → OceanofPDF). EPUB-first, PDF fallback. Includes proxy auto-detection for GFW users, metadata resolution via Open Library/Douban, and streaming downloads with verification.
+- **codebase-architecture-atlas** (v1.0.0): Codebase understanding and architecture visualization. Ontology-driven exploration (entities/relations/data flows/design principles, evidence-backed) → four-layer interactive architecture atlas (panorama → module topology → module internals → data-flow sequence), with layout linting, screenshot review, and a single-file offline build. Naming: `nan-` prefix marks original skills; upstream-named skills keep their names.
 
 ## Development Guidelines
 
